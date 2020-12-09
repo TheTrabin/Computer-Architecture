@@ -17,7 +17,7 @@ The CPU could support 256 instructions, as well, but we won't need them.
 For starters, we'll execute code that stores the value 8 in a register,
 then prints it out:
 
-```
+```mc
 # print8.ls8: Print the number 8 on the screen
 
 10000010 # LDI R0,8
@@ -51,13 +51,13 @@ See [the LS-8 spec](../LS8-spec.md) for more details.
 The above program is already hardcoded into the source file `cpu.py`. To run it,
 you will eventually:
 
-```
+```py
 python3 ls8.py
 ```
 
 but you'll have to implement those three above instructions first!
 
-## Step 0: IMPORTANT: inventory what is here!
+## Step 0: IMPORTANT: inventory what is here
 
 * Make a list of files here.
 * Write a short 3-10-word description of what each file does.
@@ -162,7 +162,7 @@ into the source. This isn't particularly user-friendly.
 Make changes to `cpu.py` and `ls8.py` so that the program can be specified on
 the command line like so:
 
-```
+```py
 python3 ls8.py examples/mult.ls8
 ```
 
@@ -231,7 +231,7 @@ Extend your LS8 emulator to support the following program:
 
 One you run it with `python3 ls8.py examples/mult.ls8`, you should see:
 
-```
+```py
 72
 ```
 
@@ -299,12 +299,12 @@ Implement a system stack per the spec. Add `PUSH` and `POP` instructions. Read
   the beginning of the spec to see which register is the stack pointer. 
   
 * Values themselves should be saved in the ***portion of RAM*** _that is allocated for the stack_. 
-  -  Use the stack pointer to modify the correct block of memory. 
-  - Make sure you update the stack pointer appropriately as you `PUSH` and `POP` items to and from the stack.
+  -Use the stack pointer to modify the correct block of memory. 
+  -Make sure you update the stack pointer appropriately as you `PUSH` and `POP` items to and from the stack.
 
 If you run `python3 ls8.py examples/stack.ls8` you should see the output:
 
-```
+```py
 2
 4
 1
@@ -342,7 +342,7 @@ and `RET`.
 
 If you run `python3 ls8.py examples/call.ls8` you should see the output:
 
-```
+```py
 20
 30
 36
@@ -381,7 +381,7 @@ popped off the stack and execution continues normally.
 This code prints out the letter `A` from the timer interrupt handler
 that fires once per second.
 
-```
+```py
 # interrupts.ls8
 
 10000010 # LDI R0,0XF8
@@ -458,7 +458,7 @@ does it differently than Unix/Mac.
 
 Write an LS-8 assembly program that prints this curve on the screen:
 
-```
+```mc
 *
 **
 ****
